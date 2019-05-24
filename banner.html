@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<style>
+    *{
+        margin: 0;
+        padding: 0
+    }
+    .banner {
+        height: 300px; 
+        overflow: hidden;
+        position: relative
+    }
+  .banner > img {
+    opacity: 0;
+    transition: 0.25s;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    top: 0; }
+    .banner > img.active {
+      opacity: 1; }
+  .banner .fa {
+    background: var(--darkBlue);
+    border-radius: 100%;
+    position: absolute;
+    cursor: pointer;
+    color: #fff;
+    display: block;
+    font-size: 32px;
+    line-height: 50px;
+    opacity: 1;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    z-index: 999; }
+    .banner .fa.fa-arrow-left {
+      left: 10px; }
+    .banner .fa.fa-arrow-right {
+      right: 10px; }
+
+/*# sourceMappingURL=banner.css.map */
+
+</style>
+</head>
+<body>
+    
+
+<section class="banner">
+  
+  <i class="fa fa-arrow-left"></i>
+  <i class="fa fa-arrow-right"></i>
+
+  <img data-banner="0" src="https://via.placeholder.com/1280x300/FF0000/FFFFFF" class="active"/>
+  <img data-banner="1" src="https://via.placeholder.com/1280x300/000000/FFFFFF" />
+  <img data-banner="2" src="https://via.placeholder.com/1280x300/0000FF/FFFFFF" />
+  
+
+  <div class="thumbs">
+    <span class="thumb-01"></span>
+    <span class="thumb-02"></span>
+    <span class="thumb-03"></span>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  banner             = document.querySelector('.banner')
+  banner_images      = document.querySelectorAll('.banner img')
+  // // banner_thumbs      = document.querySelectorAll('.banner .thumbs span')
+  banner_left_arrow  = document.querySelector('.banner .fa-arrow-left')
+  banner_right_arrow = document.querySelector('.banner .fa-arrow-right')
+
+  // greenpark_thumbs  = document.querySelectorAll('#greenpark figure img')
+
+
+  // close modal window
+
+
+  len = document.querySelectorAll('.banner img').length - 1 
+
+  banner_left_arrow.onclick = function() {
+    var n = document.querySelector('.banner img.active').getAttribute('data-banner')
+      
+    n <= 0 ? n = len : n--
+
+      for ( var i = 0 ; i <= len ; i++ ) {
+          banner_images[i].classList.remove('active');
+          // banner_thumbs[i].classList.remove('active');
+      }
+
+      banner_images[n].classList.add('active');
+      // banner_thumbs[n].classList.add('active');
+  }
+
+
+
+  banner_right_arrow.onclick = function() {
+      var n = document.querySelector('.banner img.active').getAttribute('data-banner')
+      
+      n >= len ? n = 0 : n++
+
+      for ( var i = 0 ; i <= len ; i++ ) {
+          
+          banner_images[i].classList.remove('active');
+          // banner_thumbs[i].classList.remove('active');
+      }
+
+      banner_images[n].classList.add('active');
+      // banner_thumbs[n].classList.add('active');
+  }
+
+
+
+  // function thumb_show_banner() {
+    
+  //     n = this.getAttribute('data-number') - 1;
+
+  //     for ( var i = 0 ; i < greenpark_thumbs.length ; i++ ) {
+  //         banner_images[i].classList.remove('active');
+  // //         banner_thumbs[i].classList.remove('active');
+  //     }
+
+  //     // show modal banner and backgorund
+  //     banner.classList.add('active');
+  //     modal_background.classList.add('active');
+
+  //     // turn active current banner, thumb, 
+  //     this.classList.add('active');
+  //     banner_images[n].classList.add('active');
+  // //     banner_thumbs[n].classList.add('active');
+
+  // }
+
+  // for ( var i = 0 ; i < greenpark_thumbs.length ; i++) {
+      
+  //     // show modal banner img on greenpark thumb click
+  //     greenpark_thumbs[i].addEventListener('click', thumb_show_banner)
+
+  //     // change modal banner img on modal banner thumb click
+  // //     banner_thumbs[i].addEventListener('click', thumb_show_banner)
+
+  // }
+</script>
+
+</body>
+</html>
