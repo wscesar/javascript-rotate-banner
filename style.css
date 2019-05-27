@@ -1,0 +1,42 @@
+
+    *{
+        margin: 0;
+        padding: 0
+    }
+    .banner {
+        height: 300px; 
+        overflow: hidden;
+        position: relative
+    }
+  .banner > img {
+    opacity: 0;
+    transition: 0.25s;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    top: 0; }
+    .banner > img.active {
+      opacity: 1; }
+  .banner .fa {
+    background: var(--darkBlue);
+    border-radius: 100%;
+    position: absolute;
+    cursor: pointer;
+    color: #fff;
+    display: block;
+    font-size: 32px;
+    line-height: 50px;
+    opacity: 1;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    z-index: 999; }
+    .banner .fa.fa-arrow-left {
+      left: 10px; }
+    .banner .fa.fa-arrow-right {
+      right: 10px; }
+
+/*# sourceMappingURL=banner.css.map */
+
